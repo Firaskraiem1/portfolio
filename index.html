@@ -1,237 +1,974 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Firas Ben Kraiem – Software Engineer & AI Engineer</title>
-<meta name="description" content="Portfolio of Firas Ben Kraiem, Software Engineer: full-stack development, DevOps and AI.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%236366f1'/><text x='50' y='66' font-size='46' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>FB</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#f6f7fb;--fg:#12141c;--mu:#5b6275;--card:rgba(255,255,255,.72);--ln:rgba(18,20,28,.1);--a:#5b5bf0;--b:#06b6d4;--abg:rgba(91,91,240,.1);color-scheme:light}
-:root[data-theme=dark]{--bg:#080a12;--fg:#eceef6;--mu:#97a0b8;--card:rgba(20,24,38,.7);--ln:rgba(255,255,255,.09);--a:#8b8bff;--b:#22d3ee;--abg:rgba(139,139,255,.13);color-scheme:dark}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-.bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
-.bg i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;animation:fl 18s ease-in-out infinite alternate}
-.bg i:nth-child(1){width:46vw;height:46vw;background:var(--a);top:-12vw;left:-8vw}
-.bg i:nth-child(2){width:38vw;height:38vw;background:var(--b);bottom:-10vw;right:-6vw;animation-delay:-6s}
-@keyframes fl{to{transform:translate(6vw,5vh) scale(1.15)}}
-.pg{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--a),var(--b));z-index:20}
-.w{max-width:1040px;margin:0 auto;padding:0 22px}
-header{position:fixed;top:12px;left:0;right:0;z-index:10}
-header .w{display:flex;align-items:center;gap:14px;height:54px;background:var(--card);backdrop-filter:blur(16px);border:1px solid var(--ln);border-radius:16px;max-width:1000px;padding:0 16px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
-.logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--a)}
-@media(max-width:380px){.logo span{display:none}}
-nav{margin-left:auto;display:flex;gap:4px}
-nav a{padding:6px 12px;border-radius:10px;font-size:14px;color:var(--mu);transition:.2s}
-nav a:hover,nav a.on{color:var(--fg);background:var(--abg)}
-.ctl{display:flex;gap:6px}
-.ctl button{border:1px solid var(--ln);background:transparent;color:var(--fg);border-radius:10px;padding:5px 10px;font:600 13px Inter;cursor:pointer;transition:.2s}
-.ctl button[aria-pressed=true]{background:var(--a);border-color:var(--a);color:#fff}
-@media(max-width:760px){nav{display:none}.ctl{margin-left:auto}}
-.hero{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:110px 22px 60px}
-@keyframes sp{to{transform:rotate(360deg)}}
-.mq{overflow:hidden;border-block:1px solid var(--ln);padding:14px 0;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.mq div{display:flex;gap:34px;width:max-content;animation:mqa 38s linear infinite;font:500 14px 'JetBrains Mono',monospace;color:var(--mu)}
-.mq span::before{content:"◆ ";color:var(--a)}
-@keyframes mqa{to{transform:translateX(-50%)}}
-.card{position:relative;overflow:hidden}
-.card::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),var(--abg),transparent 60%)}
-.card:hover::after{opacity:1}
-h2::after{content:"";display:block;width:56px;height:4px;border-radius:4px;margin-top:12px;background:linear-gradient(90deg,var(--a),var(--b))}
-.ct h2::after{margin-inline:auto}
-.pill{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--ln);background:var(--card);padding:6px 14px;border-radius:999px;font-size:13px;color:var(--mu)}
-.pill b{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 #22c55e88;animation:pu 2s infinite}
-@keyframes pu{70%{box-shadow:0 0 0 9px #22c55e00}}
-h1{font-size:clamp(40px,8vw,84px);line-height:1.02;letter-spacing:-.04em;margin:18px 0 10px;font-weight:800}
-.g{background:linear-gradient(100deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
-.role{font:500 clamp(16px,2.4vw,22px) 'JetBrains Mono',monospace;color:var(--mu);min-height:1.6em}
-.role::after{content:"";display:inline-block;width:2px;height:1.05em;background:var(--a);margin-left:4px;vertical-align:-3px;animation:bl 1s steps(1) infinite}
-@keyframes bl{50%{opacity:0}}
-.lead{max-width:640px;color:var(--mu);font-size:18px;margin:18px 0 28px}
-.btns{display:flex;flex-wrap:wrap;gap:10px}
-.btn{padding:11px 20px;border-radius:12px;border:1px solid var(--ln);background:var(--card);font-weight:600;font-size:15px;transition:.25s;backdrop-filter:blur(8px)}
-.btn:hover{transform:translateY(-3px);box-shadow:0 10px 28px -10px var(--a)}
-.btn.p{background:linear-gradient(100deg,var(--a),var(--b));border:0;color:#fff}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:48px}
-.st{padding:16px 18px;border:1px solid var(--ln);border-radius:16px;background:var(--card);backdrop-filter:blur(8px)}
-.st strong{display:block;font-size:30px;letter-spacing:-.03em}.st span{font-size:13px;color:var(--mu)}
-section{padding:80px 0}
-.eyebrow{font:500 13px 'JetBrains Mono',monospace;color:var(--a);letter-spacing:.08em;text-transform:uppercase}
-h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.03em;margin:6px 0 32px}
-.about{max-width:780px;color:var(--mu);font-size:18px}
-.tl{position:relative;padding-left:28px}
-.tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--a),var(--b),transparent)}
-.it{position:relative;margin-bottom:22px}
-.it::before{content:"";position:absolute;left:-28px;top:26px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--a)}
-.card{border:1px solid var(--ln);background:var(--card);backdrop-filter:blur(10px);border-radius:20px;padding:22px 24px;transition:.3s}
-.card:hover{border-color:var(--a);transform:translateY(-4px);box-shadow:0 18px 40px -22px var(--a)}
-.hd{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;align-items:baseline}
-.card h3{margin:0;font-size:20px;letter-spacing:-.02em}
-.dt{font:500 13px 'JetBrains Mono',monospace;color:var(--mu)}
-.rl{color:var(--a);font-weight:600;font-size:14px;margin:2px 0 10px}
-.card ul{margin:8px 0 0;padding-left:18px;color:var(--mu);font-size:15px}.card li{margin:6px 0}.card li b{color:var(--fg);font-weight:600}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-.tag{background:var(--abg);color:var(--a);border-radius:999px;padding:3px 11px;font-size:12.5px;font-weight:600}
-.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.card.f{grid-column:1/-1;border-color:var(--a);background:linear-gradient(135deg,var(--abg),var(--card))}
-.card .pd{color:var(--mu);font-size:15px;margin:8px 0 0}.card .pd+.pd{margin-top:6px}
-.sk{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.sk h4{margin:0 0 6px;font-size:15px}
-.rv{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
-.ct{text-align:center;padding:90px 0}
-.ct .btns{justify-content:center}.ct p{color:var(--mu);max-width:520px;margin:0 auto 26px;font-size:18px}
-footer{border-top:1px solid var(--ln);padding:26px 0;text-align:center;color:var(--mu);font-size:14px}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Firas Ben Kraiem – Software Engineer & AI Engineer</title>
+  <meta name="description"
+    content="Portfolio of Firas Ben Kraiem, Software Engineer: full-stack development, DevOps and AI.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%236366f1'/><text x='50' y='66' font-size='46' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>FB</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --fg: #12141c;
+      --mu: #5b6275;
+      --card: rgba(255, 255, 255, .72);
+      --ln: rgba(18, 20, 28, .1);
+      --a: #5b5bf0;
+      --b: #06b6d4;
+      --abg: rgba(91, 91, 240, .1);
+      color-scheme: light
+    }
 
-.ph{position:relative;justify-self:center;width:min(430px,100%)}
-.ph::before{content:"";position:absolute;inset:-16px;border-radius:44px;border:1px solid var(--ln);transform:rotate(-3deg);transition:transform .6s}
-.ph:hover::before{transform:rotate(0)}
-.ph .fr{position:relative;border-radius:34px;overflow:hidden;aspect-ratio:15/16;border:1px solid var(--ln);box-shadow:0 40px 80px -34px var(--a);background:linear-gradient(160deg,var(--a),var(--b))}
-.ph img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 10%;transition:transform .8s}
-.ph:hover img{transform:scale(1.04)}
-.ph .tg{position:absolute;z-index:2;left:16px;right:16px;bottom:16px;display:flex;flex-wrap:wrap;gap:8px}
-.ph .bd{padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.16);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.28);color:#fff;font:500 12px 'JetBrains Mono',monospace}
-@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:100px}.ph{order:-1;width:min(300px,82%)}}
+    :root[data-theme=dark] {
+      --bg: #080a12;
+      --fg: #eceef6;
+      --mu: #97a0b8;
+      --card: rgba(20, 24, 38, .7);
+      --ln: rgba(255, 255, 255, .09);
+      --a: #8b8bff;
+      --b: #22d3ee;
+      --abg: rgba(139, 139, 255, .13);
+      color-scheme: dark
+    }
 
-button.btn{font:600 15px Inter,sans-serif;color:inherit;cursor:pointer}
-.md{position:fixed;inset:0;z-index:50;background:rgba(5,7,12,.7);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px}
-.md[hidden]{display:none}
-.mb{width:min(960px,100%);height:min(92vh,100%);background:var(--bg);border:1px solid var(--ln);border-radius:20px;display:flex;flex-direction:column;overflow:hidden}
-.mh{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--ln)}
-.mh span{display:flex;gap:8px;flex-wrap:wrap}.mh .btn{padding:7px 14px;font-size:14px}
-.mb iframe{flex:1;border:0;width:100%;background:#fff}
-</style>
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 72px
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font: 16px/1.65 Inter, system-ui, sans-serif;
+      overflow-x: hidden
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden
+    }
+
+    .bg i {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: .35;
+      animation: fl 18s ease-in-out infinite alternate
+    }
+
+    .bg i:nth-child(1) {
+      width: 46vw;
+      height: 46vw;
+      background: var(--a);
+      top: -12vw;
+      left: -8vw
+    }
+
+    .bg i:nth-child(2) {
+      width: 38vw;
+      height: 38vw;
+      background: var(--b);
+      bottom: -10vw;
+      right: -6vw;
+      animation-delay: -6s
+    }
+
+    @keyframes fl {
+      to {
+        transform: translate(6vw, 5vh) scale(1.15)
+      }
+    }
+
+    .pg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, var(--a), var(--b));
+      z-index: 20
+    }
+
+    .w {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 22px
+    }
+
+    header {
+      position: fixed;
+      top: 12px;
+      left: 0;
+      right: 0;
+      z-index: 10
+    }
+
+    header .w {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      height: 54px;
+      background: var(--card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--ln);
+      border-radius: 16px;
+      max-width: 1000px;
+      padding: 0 16px
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      white-space: nowrap
+    }
+
+    .logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--a)
+    }
+
+    @media(max-width:380px) {
+      .logo span {
+        display: none
+      }
+    }
+
+    nav {
+      margin-left: auto;
+      display: flex;
+      gap: 4px
+    }
+
+    nav a {
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      color: var(--mu);
+      transition: .2s
+    }
+
+    nav a:hover,
+    nav a.on {
+      color: var(--fg);
+      background: var(--abg)
+    }
+
+    .ctl {
+      display: flex;
+      gap: 6px
+    }
+
+    .ctl button {
+      border: 1px solid var(--ln);
+      background: transparent;
+      color: var(--fg);
+      border-radius: 10px;
+      padding: 5px 10px;
+      font: 600 13px Inter;
+      cursor: pointer;
+      transition: .2s
+    }
+
+    .ctl button[aria-pressed=true] {
+      background: var(--a);
+      border-color: var(--a);
+      color: #fff
+    }
+
+    @media(max-width:760px) {
+      nav {
+        display: none
+      }
+
+      .ctl {
+        margin-left: auto
+      }
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 48px;
+      align-items: center;
+      padding: 110px 22px 60px
+    }
+
+    @keyframes sp {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .mq {
+      overflow: hidden;
+      border-block: 1px solid var(--ln);
+      padding: 14px 0;
+      mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)
+    }
+
+    .mq div {
+      display: flex;
+      gap: 34px;
+      width: max-content;
+      animation: mqa 38s linear infinite;
+      font: 500 14px 'JetBrains Mono', monospace;
+      color: var(--mu)
+    }
+
+    .mq span::before {
+      content: "◆ ";
+      color: var(--a)
+    }
+
+    @keyframes mqa {
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .3s;
+      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--abg), transparent 60%)
+    }
+
+    .card:hover::after {
+      opacity: 1
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 56px;
+      height: 4px;
+      border-radius: 4px;
+      margin-top: 12px;
+      background: linear-gradient(90deg, var(--a), var(--b))
+    }
+
+    .ct h2::after {
+      margin-inline: auto
+    }
+
+    .pill {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid var(--ln);
+      background: var(--card);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--mu)
+    }
+
+    .pill b {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 0 #22c55e88;
+      animation: pu 2s infinite
+    }
+
+    @keyframes pu {
+      70% {
+        box-shadow: 0 0 0 9px #22c55e00
+      }
+    }
+
+    h1 {
+      font-size: clamp(40px, 8vw, 84px);
+      line-height: 1.02;
+      letter-spacing: -.04em;
+      margin: 18px 0 10px;
+      font-weight: 800
+    }
+
+    .g {
+      background: linear-gradient(100deg, var(--a), var(--b));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent
+    }
+
+    .role {
+      font: 500 clamp(16px, 2.4vw, 22px) 'JetBrains Mono', monospace;
+      color: var(--mu);
+      min-height: 1.6em
+    }
+
+    .role::after {
+      content: "";
+      display: inline-block;
+      width: 2px;
+      height: 1.05em;
+      background: var(--a);
+      margin-left: 4px;
+      vertical-align: -3px;
+      animation: bl 1s steps(1) infinite
+    }
+
+    @keyframes bl {
+      50% {
+        opacity: 0
+      }
+    }
+
+    .lead {
+      max-width: 640px;
+      color: var(--mu);
+      font-size: 18px;
+      margin: 18px 0 28px
+    }
+
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .btn {
+      padding: 11px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--ln);
+      background: var(--card);
+      font-weight: 600;
+      font-size: 15px;
+      transition: .25s;
+      backdrop-filter: blur(8px)
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px -10px var(--a)
+    }
+
+    .btn.p {
+      background: linear-gradient(100deg, var(--a), var(--b));
+      border: 0;
+      color: #fff
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin-top: 48px
+    }
+
+    .st {
+      padding: 16px 18px;
+      border: 1px solid var(--ln);
+      border-radius: 16px;
+      background: var(--card);
+      backdrop-filter: blur(8px)
+    }
+
+    .st strong {
+      display: block;
+      font-size: 30px;
+      letter-spacing: -.03em
+    }
+
+    .st span {
+      font-size: 13px;
+      color: var(--mu)
+    }
+
+    section {
+      padding: 80px 0
+    }
+
+    .eyebrow {
+      font: 500 13px 'JetBrains Mono', monospace;
+      color: var(--a);
+      letter-spacing: .08em;
+      text-transform: uppercase
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      letter-spacing: -.03em;
+      margin: 6px 0 32px
+    }
+
+    .about {
+      max-width: 780px;
+      color: var(--mu);
+      font-size: 18px
+    }
+
+    .tl {
+      position: relative;
+      padding-left: 28px
+    }
+
+    .tl::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(var(--a), var(--b), transparent)
+    }
+
+    .it {
+      position: relative;
+      margin-bottom: 22px
+    }
+
+    .it::before {
+      content: "";
+      position: absolute;
+      left: -28px;
+      top: 26px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 3px solid var(--a)
+    }
+
+    .card {
+      border: 1px solid var(--ln);
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 22px 24px;
+      transition: .3s
+    }
+
+    .card:hover {
+      border-color: var(--a);
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px -22px var(--a)
+    }
+
+    .hd {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 6px 16px;
+      align-items: baseline
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: -.02em
+    }
+
+    .dt {
+      font: 500 13px 'JetBrains Mono', monospace;
+      color: var(--mu)
+    }
+
+    .rl {
+      color: var(--a);
+      font-weight: 600;
+      font-size: 14px;
+      margin: 2px 0 10px
+    }
+
+    .card ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+      color: var(--mu);
+      font-size: 15px
+    }
+
+    .card li {
+      margin: 6px 0
+    }
+
+    .card li b {
+      color: var(--fg);
+      font-weight: 600
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px
+    }
+
+    .tag {
+      background: var(--abg);
+      color: var(--a);
+      border-radius: 999px;
+      padding: 3px 11px;
+      font-size: 12.5px;
+      font-weight: 600
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+    }
+
+    .card.f {
+      grid-column: 1/-1;
+      border-color: var(--a);
+      background: linear-gradient(135deg, var(--abg), var(--card))
+    }
+
+    .card .pd {
+      color: var(--mu);
+      font-size: 15px;
+      margin: 8px 0 0
+    }
+
+    .card .pd+.pd {
+      margin-top: 6px
+    }
+
+    .sk {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+    }
+
+    .sk h4 {
+      margin: 0 0 6px;
+      font-size: 15px
+    }
+
+    .rv {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s, transform .7s cubic-bezier(.2, .7, .2, 1)
+    }
+
+    .rv.in {
+      opacity: 1;
+      transform: none
+    }
+
+    .ct {
+      text-align: center;
+      padding: 90px 0
+    }
+
+    .ct .btns {
+      justify-content: center
+    }
+
+    .ct p {
+      color: var(--mu);
+      max-width: 520px;
+      margin: 0 auto 26px;
+      font-size: 18px
+    }
+
+    footer {
+      border-top: 1px solid var(--ln);
+      padding: 26px 0;
+      text-align: center;
+      color: var(--mu);
+      font-size: 14px
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      * {
+        animation: none !important;
+        transition: none !important
+      }
+
+      .rv {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .ph {
+      position: relative;
+      justify-self: center;
+      width: min(430px, 100%)
+    }
+
+    .ph::before {
+      content: "";
+      position: absolute;
+      inset: -16px;
+      border-radius: 44px;
+      border: 1px solid var(--ln);
+      transform: rotate(-3deg);
+      transition: transform .6s
+    }
+
+    .ph:hover::before {
+      transform: rotate(0)
+    }
+
+    .ph .fr {
+      position: relative;
+      border-radius: 34px;
+      overflow: hidden;
+      aspect-ratio: 15/16;
+      border: 1px solid var(--ln);
+      box-shadow: 0 40px 80px -34px var(--a);
+      background: linear-gradient(160deg, var(--a), var(--b))
+    }
+
+    .ph img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 10%;
+      transition: transform .8s
+    }
+
+    .ph:hover img {
+      transform: scale(1.04)
+    }
+
+    .ph .tg {
+      position: absolute;
+      z-index: 2;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .ph .bd {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .16);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, .28);
+      color: #fff;
+      font: 500 12px 'JetBrains Mono', monospace
+    }
+
+    @media(max-width:860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 100px
+      }
+
+      .ph {
+        order: -1;
+        width: min(300px, 82%)
+      }
+    }
+
+    button.btn {
+      font: 600 15px Inter, sans-serif;
+      color: inherit;
+      cursor: pointer
+    }
+
+    .md {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background: rgba(5, 7, 12, .7);
+      backdrop-filter: blur(6px);
+      display: grid;
+      place-items: center;
+      padding: 16px
+    }
+
+    .md[hidden] {
+      display: none
+    }
+
+    .mb {
+      width: min(960px, 100%);
+      height: min(92vh, 100%);
+      background: var(--bg);
+      border: 1px solid var(--ln);
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden
+    }
+
+    .mh {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--ln)
+    }
+
+    .mh span {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .mh .btn {
+      padding: 7px 14px;
+      font-size: 14px
+    }
+
+    .mb iframe {
+      flex: 1;
+      border: 0;
+      width: 100%;
+      background: #fff
+    }
+  </style>
 </head>
+
 <body>
-<div class="bg"><i></i><i></i></div><div class="pg" id="pg"></div>
-<header><div class="w">
-  <a class="logo" href="#top" aria-label="Firas Ben Kraiem"><img src="data:image/jpeg;base64,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" alt="" width="36" height="36"><span>Firas Ben Kraiem</span></a><nav id="nav"></nav>
-  <div class="ctl"><button id="th" aria-label="Theme">◐</button><button data-l="en">EN</button><button data-l="fr">FR</button></div>
-</div></header>
-<main id="top">
-<div class="w hero"><div>
-  <span class="pill"><b></b><span data-i="open"></span></span>
-  <h1>Firas <span class="g">Ben Kraiem</span></h1>
-  <div class="role" id="role"></div>
-  <p class="lead" data-i="lead"></p>
-  <div class="btns">
-    <button class="btn p" id="pvb" data-i="pv"></button>
-    <a class="btn" href="https://github.com/Firaskraiem1" target="_blank" rel="noopener">GitHub</a>
-    <a class="btn" href="https://www.linkedin.com/in/firas-ben-kraiem-5a80a91b5" target="_blank" rel="noopener">LinkedIn</a>
-    <a class="btn" href="#contact" data-i="cb"></a>
+  <div class="bg"><i></i><i></i></div>
+  <div class="pg" id="pg"></div>
+  <header>
+    <div class="w">
+      <a class="logo" href="#top" aria-label="Firas Ben Kraiem"><img
+          src="data:image/jpeg;base64,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"
+          alt="" width="36" height="36"><span>Firas Ben Kraiem</span></a>
+      <nav id="nav"></nav>
+      <div class="ctl"><button id="th" aria-label="Theme">◐</button><button data-l="en">EN</button><button
+          data-l="fr">FR</button></div>
+    </div>
+  </header>
+  <main id="top">
+    <div class="w hero">
+      <div>
+        <span class="pill"><b></b><span data-i="open"></span></span>
+        <h1>Firas <span class="g">Ben Kraiem</span></h1>
+        <div class="role" id="role"></div>
+        <p class="lead" data-i="lead"></p>
+        <div class="btns">
+          <button class="btn p" id="pvb" data-i="pv"></button>
+          <a class="btn" href="https://github.com/Firaskraiem1" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/firas-ben-kraiem-5a80a91b5" target="_blank"
+            rel="noopener">LinkedIn</a>
+          <a class="btn" href="#contact" data-i="cb"></a>
+        </div>
+        <div class="stats" id="stats"></div>
+      </div>
+      <div class="ph">
+        <div class="fr"><img src="photo.jpg" alt="Firas Ben Kraiem" width="840" height="896" fetchpriority="high"></div>
+      </div>
+    </div>
+    <div class="mq" aria-hidden="true">
+      <div id="mq"></div>
+    </div>
+
+    <section id="about">
+      <div class="w rv">
+        <div class="eyebrow" data-i="n0"></div>
+        <h2 data-i="aboutT"></h2>
+        <p class="about" data-i="about"></p>
+      </div>
+    </section>
+    <section id="exp">
+      <div class="w">
+        <div class="eyebrow rv" data-i="n1"></div>
+        <h2 class="rv" data-i="expT"></h2>
+        <div class="tl" id="expL"></div>
+      </div>
+    </section>
+    <section id="proj">
+      <div class="w">
+        <div class="eyebrow rv" data-i="n2"></div>
+        <h2 class="rv" data-i="projT"></h2>
+        <div class="grid" id="projL"></div>
+      </div>
+    </section>
+    <section id="skills">
+      <div class="w">
+        <div class="eyebrow rv" data-i="n3"></div>
+        <h2 class="rv" data-i="skT"></h2>
+        <div class="sk" id="skL"></div>
+      </div>
+    </section>
+    <section id="contact" class="ct">
+      <div class="w rv">
+        <div class="eyebrow" data-i="n4"></div>
+        <h2 data-i="ctT"></h2>
+        <p data-i="ctP"></p>
+        <div class="btns"><a class="btn p" href="mailto:firas.benkraiem@esprit.tn">firas.benkraiem@esprit.tn</a><a
+            class="btn" href="tel:+21628751158">+216 28 751 158</a></div>
+      </div>
+    </section>
+  </main>
+  <footer>© 2026 Firas Ben Kraiem · Tunis, Tunisia</footer>
+
+  <div class="md" id="md" hidden role="dialog" aria-modal="true">
+    <div class="mb">
+      <div class="mh"><strong data-i="cvT"></strong><span><a class="btn p" id="cvd" download data-i="cv"></a><a
+            class="btn" id="cvo" target="_blank" rel="noopener" data-i="op2"></a><button class="btn" id="mc"
+            aria-label="Close">✕</button></span></div><iframe id="fr" title="CV"></iframe>
+    </div>
   </div>
-  <div class="stats" id="stats"></div>
-</div>
-<div class="ph"><div class="fr"><img src="photo.jpg" alt="Firas Ben Kraiem" width="840" height="896" fetchpriority="high"></div></div></div>
-<div class="mq" aria-hidden="true"><div id="mq"></div></div>
-
-<section id="about"><div class="w rv"><div class="eyebrow" data-i="n0"></div><h2 data-i="aboutT"></h2><p class="about" data-i="about"></p></div></section>
-<section id="exp"><div class="w"><div class="eyebrow rv" data-i="n1"></div><h2 class="rv" data-i="expT"></h2><div class="tl" id="expL"></div></div></section>
-<section id="proj"><div class="w"><div class="eyebrow rv" data-i="n2"></div><h2 class="rv" data-i="projT"></h2><div class="grid" id="projL"></div></div></section>
-<section id="skills"><div class="w"><div class="eyebrow rv" data-i="n3"></div><h2 class="rv" data-i="skT"></h2><div class="sk" id="skL"></div></div></section>
-<section id="contact" class="ct"><div class="w rv"><div class="eyebrow" data-i="n4"></div><h2 data-i="ctT"></h2><p data-i="ctP"></p>
-  <div class="btns"><a class="btn p" href="mailto:firas.benkraiem@esprit.tn">firas.benkraiem@esprit.tn</a><a class="btn" href="tel:+21628751158">+216 28 751 158</a></div></div></section>
-</main>
-<footer>© 2026 Firas Ben Kraiem · Tunis, Tunisia</footer>
-
-<div class="md" id="md" hidden role="dialog" aria-modal="true"><div class="mb"><div class="mh"><strong data-i="cvT"></strong><span><a class="btn p" id="cvd" download data-i="cv"></a><a class="btn" id="cvo" target="_blank" rel="noopener" data-i="op2"></a><button class="btn" id="mc" aria-label="Close">✕</button></span></div><iframe id="fr" title="CV"></iframe></div></div>
-<script>
-const T={
-open:["Open to on-site, hybrid, remote and relocation","Ouvert : présentiel, hybride, télétravail et mobilité"],
-lead:["Software engineer graduated from ESPRIT (2026), passionate about software development, DevOps and artificial intelligence.","Ingénieur informatique diplômé d’ESPRIT (2026), passionné par le développement logiciel, le DevOps et l’intelligence artificielle."],
-cv:["Download CV","Télécharger le CV"],pv:["Preview CV","Aperçu du CV"],cvT:["Curriculum Vitae","Curriculum Vitae"],op2:["Open in new tab","Ouvrir dans un onglet"],cb:["Contact me","Me contacter"],
-n0:["01 / about","01 / profil"],n1:["02 / experience","02 / expérience"],n2:["03 / projects","03 / projets"],n3:["04 / skills","04 / compétences"],n4:["05 / contact","05 / contact"],
-aboutT:["Personal Profile","Profil personnel"],
-about:["Software Engineer graduated from ESPRIT (2026), versatile and passionate about software development, DevOps, and artificial intelligence. I have solid experience in application development, distributed architectures, automation, and AI solution integration. Rigorous, curious, and adaptable, I am eager to leverage my technical skills within a team and contribute to building innovative and robust solutions.","Ingénieur informatique diplômé d’ESPRIT (2026), polyvalent et passionné par le développement logiciel, le DevOps et l’intelligence artificielle. Doté d’une solide expérience en conception d’applications, architectures distribuées, automatisation et intégration de solutions IA. Rigoureux, curieux et adaptable, je souhaite mettre mes compétences techniques au service d’une équipe et contribuer à la conception de solutions innovantes et robustes."],
-expT:["Professional Experiences","Expériences professionnelles"],projT:["Academic Projects","Projets académiques"],skT:["Technical Skills","Compétences techniques"],
-ctT:["Let’s work together","Travaillons ensemble"],ctP:["Looking for a software, DevOps or AI engineer? I’d love to hear from you.","Vous cherchez un ingénieur logiciel, DevOps ou IA ? Je serais ravi d’échanger."],
-nav:[["About","Experience","Projects","Skills","Contact"],["Profil","Expérience","Projets","Compétences","Contact"]],
-roles:[["Software Engineer & AI Engineer","Full-Stack Developer","DevOps & Cloud-native","Full-Stack · DevOps · AI"],["Ingénieur logiciel & ingénieur IA","Développeur Full-Stack","DevOps & Cloud-native","Full-Stack · DevOps · IA"]],
-stats:[[["5","Internships"],["6","Academic projects"],["3","Languages"]],[["5","Stages"],["6","Projets académiques"],["3","Langues"]]]
-};
-const E=[
-{c:"Elyadata",r:["Final-Year Engineering Internship (Graduation Project)","Stage de fin d’études d’ingénieur (PFE)"],d:["Feb 2026 – Jul 2026","Fév 2026 – Juil 2026"],
-b:[[["ASR Benchmarking and Model Selection:","Benchmark ASR et sélection du modèle :"],["evaluated NVIDIA NeMo and K2 against Whisper and Cohere across Arabic, French and English datasets using WER, CER and Real-Time Factor (RTF), then selected NVIDIA NeMo FastConformer based on accuracy, streaming efficiency, stability and tooling maturity.","évaluation de NVIDIA NeMo et K2 face à Whisper et Cohere sur des jeux de données en arabe, français et anglais (WER, CER, RTF), puis choix de NVIDIA NeMo FastConformer selon la précision, l’efficacité en streaming, la stabilité et la maturité de l’outillage."]],
-[["Research and Experimentation:","Recherche et expérimentation :"],["fine-tuned a natively streaming FastConformer on TEDxTN and TuniFra, reducing WER from 98.14% (zero-shot) to 40.31% and CER from 78.33% to 23.51% on the TEDxTN test set, establishing the final baseline for real-time Tunisian Arabic ASR.","fine-tuning d’un FastConformer nativement streaming sur TEDxTN et TuniFra, réduisant le WER de 98,14% (zero-shot) à 40,31% et le CER de 78,33% à 23,51% sur le jeu de test TEDxTN, établissant la baseline finale pour l’ASR temps réel de l’arabe tunisien."]],
-[["Real-Time Application:","Application temps réel :"],["developed ElyaSpeech, a microservices-based transcription platform (Angular, FastAPI, NeMo ASR). Started with WebSocket streaming, then migrated to WebRTC for browser-to-backend audio and gRPC/Protobuf for backend-to-ASR communication to improve real-time performance.","développement d’ElyaSpeech, plateforme de transcription en microservices (Angular, FastAPI, NeMo ASR). Première architecture WebSocket, puis migration vers WebRTC (navigateur vers backend) et gRPC/Protobuf (backend vers ASR) pour améliorer les performances temps réel."]],
-[["Storage, Architecture and Deployment:","Stockage, architecture et déploiement :"],["PostgreSQL for transcription data, Azurite (Azure Blob Storage) for audio and model artifacts, hexagonal architecture, Docker and Docker Compose.","PostgreSQL pour les transcriptions, Azurite (Azure Blob Storage) pour l’audio et les artefacts des modèles, architecture hexagonale, Docker et Docker Compose."]],
-[["Testing, Observability and CI/CD:","Tests, observabilité et CI/CD :"],["unit, end-to-end and performance tests (Pytest, Vitest, Playwright, Locust), Prometheus, Grafana and Loki, and automated quality checks and image publishing with GitHub Actions and Docker Hub.","tests unitaires, de bout en bout et de performance (Pytest, Vitest, Playwright, Locust), Prometheus, Grafana et Loki, contrôles qualité et publication des images automatisés avec GitHub Actions et Docker Hub."]]],
-t:["Python","PyTorch","NVIDIA NeMo","K2","FastAPI","WebRTC","gRPC","Angular","PostgreSQL","Azurite","Docker","GitHub Actions","Prometheus","Grafana","Loki"]},
-{c:"Linagora Tunisia",r:["Engineering Internship","Stage d’ingénieur"],d:["Jul 2025 – Aug 2025","Juil 2025 – Août 2025"],
-b:[[["Multi-tenancy","Multi-tenancy"],["in the APISIX Dashboard: instance management, ETCD prefix-based isolation and instance-level access control.","dans APISIX Dashboard : gestion des instances, isolation via préfixes ETCD et contrôle des droits par instance."]],
-[["Frontend & backend:","Frontend & backend :"],["React with an instance selector; Go backend with ETCD prefix injection via middleware and per-instance caching.","React avec sélecteur d’instance ; backend Go avec injection du préfixe ETCD via middleware et gestion des caches par instance."]],
-[["Monitoring & security:","Supervision & sécurité :"],["instance status and key metrics (Prometheus), JWT-based security, Docker/Docker Compose containerization.","état et métriques clés des instances (Prometheus), sécurisation JWT, conteneurisation Docker/Docker Compose."]]],
-t:["React","Go","APISIX","ETCD","JWT","Prometheus","Docker"]},
-{c:"Devaxon",r:["Corporate Immersion Internship","Stage d’immersion en entreprise"],d:["Jul 2024 – Aug 2024","Juil 2024 – Août 2024"],
-b:[[["Equipment management app:","Gestion des équipements :"],["calibration tracking, service providers and reports, with automatic alerts for calibration dates; containerized with Docker.","suivi d’étalonnage, prestataires et rapports, avec alertes automatiques sur les dates d’étalonnage ; conteneurisation avec Docker."]]],
-t:["Angular","TypeScript","Spring Boot","PostgreSQL","Docker"]},
-{c:"Elyadata",r:["Final-Year Internship (Bachelor’s Degree)","Stage de fin d’études (Licence)"],d:["Feb 2023 – Jun 2023","Fév 2023 – Juin 2023"],
-b:[[["Mobile OCR app:","Application mobile OCR :"],["digitizes and extracts information from ID cards, business cards and invoices, including Arabic documents, with a multilingual OCR engine.","numérisation et extraction d’informations à partir de pièces d’identité, cartes de visite et factures, y compris en arabe, avec un moteur OCR multilingue."]],
-[["Security:","Sécurisation :"],["temporary local encryption, automatic deletion after processing, guided workflow (capture, cropping, preview, export).","chiffrement local temporaire, suppression automatique après traitement, workflow guidé (capture, recadrage, prévisualisation, export)."]]],
-t:["Flutter","Dart","OCR","Swagger"]},
-{c:"Phylia Technology",r:["Summer Internship","Stage d’été"],d:["Aug 2022","Août 2022"],
-b:[[["Meal-ordering mobile app:","Commande de repas :"],["real-time order tracking, Firebase (authentication, real-time database, push notifications) and advanced filtering.","suivi en temps réel, Firebase (authentification, base temps réel, notifications push) et filtrage avancé."]]],
-t:["Flutter","Dart","Firebase"]}];
-const P=[
-{n:["Food Finder","Food Finder"],s:["Mobile app for discovering and booking culinary establishments","Application mobile de découverte et réservation d’établissements culinaires"],d:["Oct – Nov 2025","Oct – Nov 2025"],
-p:[["Discover, book, rate and manage favorite restaurants, with multi-role authentication (Google Sign-In, biometrics) and full CRUD on restaurants, dishes, bookings and reviews.","Découverte, réservation, notation et gestion des favoris, avec authentification multi-rôles (Google Sign-In, biométrie) et CRUD complet : restaurants, plats, réservations, avis."],["Gemini AI assistant for contextual recommendations; modular architecture (presentation, services, SQLite, FastAPI backend) and a reusable UI library.","Assistant IA (Gemini) pour des recommandations contextuelles ; architecture modulaire (présentation, services, SQLite, backend FastAPI) et bibliothèque UI réutilisable."]],t:["Flutter","Dart","FastAPI","SQLite","Gemini"]},
-{n:["AI Chatbot Assistant","Assistant Chatbot IA"],s:["Full-featured conversational AI application","Application d’IA conversationnelle complète"],d:["Oct 2025","Oct 2025"],
-p:[["Complete conversation history management with CRUD, integrating the OpenAI GPT API for real-time chat and message regeneration.","Gestion intégrale de l’historique et CRUD, avec l’API OpenAI GPT pour le chat en temps réel et la régénération des messages."],["Scalable RESTful Spring Boot backend and a responsive UI with Angular 19, PrimeNG and Tailwind CSS.","Backend RESTful Spring Boot évolutif et interface responsive avec Angular 19, PrimeNG et Tailwind CSS."]],t:["Angular 19","Spring Boot","PrimeNG","Tailwind","OpenAI"]},
-{n:["Coding Factory","Coding Factory"],s:["Academic management platform","Plateforme de gestion académique"],d:["Dec 2024 – May 2025","Déc 2024 – Mai 2025"],
-p:[["Manages final projects (PFE), courses, events and technical forums, with AI features: course recommendations and training-duration prediction.","Gestion des PFE, cours, événements et forum technique, avec fonctionnalités IA : recommandation de cours et prédiction de la durée des formations."],["Microservices (Eureka Server, API Gateway, Feign Client, Spring Cloud Config) deployed with Docker Compose.","Architecture microservices (Eureka Server, API Gateway, Feign Client, Spring Cloud Config) déployée avec Docker Compose."]],t:["Angular","Spring Boot","Neon PostgreSQL","Docker","ML"]},
-{n:["CareLink","CareLink"],s:["Cross-platform client-medical application","Application client-médical multi-plateforme"],d:["Feb – Apr 2024","Fév – Avr 2024"],
-p:[["Comprehensive patient management (appointments, medical records, follow-up) on a distributed architecture across three machines (application, database, clients) for better security and communication.","Gestion complète du parcours patient (rendez-vous, dossiers, suivi médical) sur une architecture distribuée sur trois machines (application, base de données, clients) pour optimiser sécurité et communication."]],t:["Symfony","FlutterFlow","JavaFX"]},
-{n:["DevOps","DevOps"],s:["Hands-on practice with key DevOps tools","Mise en pratique des principaux outils DevOps"],d:["Sep – Oct 2025","Sep – Oct 2025"],
-p:[["Orchestration, CI/CD, monitoring, code quality and containerization.","Orchestration, CI/CD, monitoring, qualité du code et conteneurisation."]],t:["Kubernetes","Jenkins","Prometheus","SonarQube","Docker"]}];
-const S=[
-[["Programming Languages","Langages"],"C / C++, C#, Java, Python, Dart, Go, JavaScript, TypeScript, PHP, SQL, LINQ, PL/SQL"],
-[["Web & Frameworks","Web & Frameworks"],"HTML, CSS, Bootstrap, Tailwind CSS, Angular, React, Symfony, .NET, Spring Boot, Flutter, FastAPI, Flask"],
-[["Microservices & Real-Time","Microservices & Temps réel"],"Eureka, API Gateway, Feign Client, Spring Cloud Config, WebSocket, WebRTC, gRPC / Protobuf, Apache APISIX"],
-[["Databases","Bases de données"],"MySQL, Oracle, SQLite, PostgreSQL, Neon PostgreSQL, Firebase, MongoDB, ETCD"],
-[["DevOps & Observability","DevOps & Observabilité"],"Docker / Docker Compose, GitHub Actions, Jenkins, Kubernetes, MiniKube, SonarQube, Prometheus, Grafana, Loki"],
-[["AI / Machine Learning","IA / Machine Learning"],"Machine Learning, Deep Learning, PyTorch, NVIDIA NeMo, K2 / icefall, Speech Recognition (ASR), Model Fine-tuning, Hugging Face, scikit-learn"],
-[["Testing & API","Tests & API"],"Pytest, Vitest, Playwright, Locust, Swagger, Postman"],
-[["Tools & Management","Outils & Gestion"],"Git, GitHub, Trello, Jira, VS Code, IntelliJ IDEA, Android Studio, Linux, Power BI, FlutterFlow, n8n"]];
-const tg=a=>`<div class="tags">${a.map(x=>`<span class="tag">${x}</span>`).join("")}</div>`;
-let L=0,rt;const md=document.getElementById("md"),fr=document.getElementById("fr");
-function type(l){clearTimeout(rt);const w=T.roles[l],el=document.getElementById("role");let i=0,j=0,del=0;
- (function s(){const t=w[i];el.textContent=t.slice(0,j);if(!del&&j==t.length&&i==w.length-1)return;if(!del&&j==t.length){del=1;return void(rt=setTimeout(s,1400))}
- if(del&&j==0){del=0;i=(i+1)%w.length}j+=del?-1:1;rt=setTimeout(s,del?35:70)})()}
-function render(l){L=l;document.documentElement.lang=l?"fr":"en";
- document.querySelectorAll("[data-i]").forEach(e=>e.textContent=T[e.dataset.i][l]);
- document.getElementById("nav").innerHTML=["about","exp","proj","skills","contact"].map((id,i)=>`<a href="#${id}">${T.nav[l][i]}</a>`).join("");
- const pf=l?"cv-fr.pdf":"cv-en.pdf";["cvd","cvo"].forEach(k=>document.getElementById(k).href=pf);if(!md.hidden)fr.src=pf+"#view=FitH";
- document.getElementById("stats").innerHTML=T.stats[l].map(s=>`<div class="st rv"><strong>${s[0]}</strong><span>${s[1]}</span></div>`).join("");
- document.getElementById("expL").innerHTML=E.map(e=>`<div class="it rv"><article class="card"><div class="hd"><h3>${e.c}</h3><span class="dt">${e.d[l]}</span></div><div class="rl">${e.r[l]}</div><ul>${e.b.map(b=>`<li><b>${b[0][l]}</b> ${b[1][l]}</li>`).join("")}</ul>${tg(e.t)}</article></div>`).join("");
- document.getElementById("projL").innerHTML=P.map(p=>`<article class="card rv"><div class="hd"><h3>${p.n[l]}</h3><span class="dt">${p.d[l]}</span></div><div class="rl">${p.s[l]}</div>${p.p.map(x=>`<p class="pd">${x[l]}</p>`).join("")}${tg(p.t)}</article>`).join("");
- document.getElementById("skL").innerHTML=S.map(s=>`<div class="card rv"><h4>${s[0][l]}</h4>${tg(s[1].split(", "))}</div>`).join("");
- document.querySelectorAll("[data-l]").forEach(b=>b.setAttribute("aria-pressed",(b.dataset.l=="fr"?1:0)==l));
- try{localStorage.setItem("lang",l?"fr":"en")}catch(e){}
- type(l);observe()}
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
-function observe(){document.querySelectorAll(".rv:not(.in)").forEach(e=>io.observe(e))}
-let l0=0;try{const s=localStorage.getItem("lang");l0=s?(s=="fr"?1:0):((navigator.language||"").toLowerCase().startsWith("fr")?1:0)}catch(e){}
-document.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>render(b.dataset.l=="fr"?1:0));
-document.getElementById("th").onclick=()=>{const r=document.documentElement;const d=r.dataset.theme?r.dataset.theme=="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=d?"light":"dark"};
-if(matchMedia("(prefers-color-scheme:dark)").matches)document.documentElement.dataset.theme="dark";
-addEventListener("scroll",()=>{const h=document.documentElement;document.getElementById("pg").style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%";
- let cur="";document.querySelectorAll("section").forEach(s=>{if(s.getBoundingClientRect().top<140)cur=s.id});
- document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")=="#"+cur))},{passive:true});
-const MQ="Python,PyTorch,NVIDIA NeMo,FastAPI,Angular,React,Spring Boot,Go,Flutter,WebRTC,gRPC,PostgreSQL,Docker,Kubernetes,GitHub Actions,Prometheus,Grafana".split(",");
-document.getElementById("mq").innerHTML=[...MQ,...MQ].map(x=>`<span>${x}</span>`).join("");
-addEventListener("mousemove",e=>{const c=e.target.closest&&e.target.closest(".card");if(c){const r=c.getBoundingClientRect();c.style.setProperty("--mx",e.clientX-r.left+"px");c.style.setProperty("--my",e.clientY-r.top+"px")}},{passive:true});
-function count(){document.querySelectorAll(".st strong").forEach(el=>{const m=el.textContent.match(/^(\d+)([.,]?)(\d*)(.*)$/);if(!m)return;const dec=m[3].length,to=parseFloat(m[1]+"."+(m[3]||"0")),t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/1300),v=to*(1-Math.pow(1-p,3));el.textContent=(dec?v.toFixed(dec).replace(".",m[2]):Math.round(v))+m[4];if(p<1)requestAnimationFrame(f)})(t0)})}
-function pvOpen(){fr.src=(L?"cv-fr.pdf":"cv-en.pdf")+"#view=FitH";md.hidden=false;document.body.style.overflow="hidden"}
-function pvClose(){md.hidden=true;fr.src="about:blank";document.body.style.overflow=""}
-document.getElementById("pvb").onclick=pvOpen;document.getElementById("mc").onclick=pvClose;
-md.addEventListener("click",e=>{if(e.target===md)pvClose()});addEventListener("keydown",e=>{if(e.key==="Escape"&&!md.hidden)pvClose()});
-render(l0);count();
-document.querySelectorAll("[data-l]").forEach(b=>b.addEventListener("click",count));
-</script>
+  <script>
+    const T = {
+      open: ["Open to on-site, hybrid, remote and relocation", "Ouvert : présentiel, hybride, télétravail et mobilité"],
+      lead: ["Software engineer graduated from ESPRIT (2026), passionate about software development, DevOps and artificial intelligence.", "Ingénieur informatique diplômé d’ESPRIT (2026), passionné par le développement logiciel, le DevOps et l’intelligence artificielle."],
+      cv: ["Download CV", "Télécharger le CV"], pv: ["Preview CV", "Aperçu du CV"], cvT: ["Curriculum Vitae", "Curriculum Vitae"], op2: ["Open in new tab", "Ouvrir dans un onglet"], cb: ["Contact me", "Me contacter"],
+      n0: ["01 / about", "01 / profil"], n1: ["02 / experience", "02 / expérience"], n2: ["03 / projects", "03 / projets"], n3: ["04 / skills", "04 / compétences"], n4: ["05 / contact", "05 / contact"],
+      aboutT: ["Personal Profile", "Profil personnel"],
+      about: ["Software Engineer graduated from ESPRIT (2026), versatile and passionate about software development, DevOps, and artificial intelligence. I have solid experience in application development, distributed architectures, automation, and AI solution integration. Rigorous, curious, and adaptable, I am eager to leverage my technical skills within a team and contribute to building innovative and robust solutions.", "Ingénieur informatique diplômé d’ESPRIT (2026), polyvalent et passionné par le développement logiciel, le DevOps et l’intelligence artificielle. Doté d’une solide expérience en conception d’applications, architectures distribuées, automatisation et intégration de solutions IA. Rigoureux, curieux et adaptable, je souhaite mettre mes compétences techniques au service d’une équipe et contribuer à la conception de solutions innovantes et robustes."],
+      expT: ["Professional Experiences", "Expériences professionnelles"], projT: ["Academic Projects", "Projets académiques"], skT: ["Technical Skills", "Compétences techniques"],
+      ctT: ["Let’s work together", "Travaillons ensemble"], ctP: ["Looking for a software, DevOps or AI engineer? I’d love to hear from you.", "Vous cherchez un ingénieur logiciel, DevOps ou IA ? Je serais ravi d’échanger."],
+      nav: [["About", "Experience", "Projects", "Skills", "Contact"], ["Profil", "Expérience", "Projets", "Compétences", "Contact"]],
+      roles: [["Software Engineer & AI Engineer", "Full-Stack Developer", "DevOps & Cloud-native", "Full-Stack · DevOps · AI"], ["Ingénieur logiciel & ingénieur IA", "Développeur Full-Stack", "DevOps & Cloud-native", "Full-Stack · DevOps · IA"]],
+      stats: [[["5", "Internships"], ["5", "Academic projects"], ["3", "Languages"]], [["5", "Stages"], ["5", "Projets académiques"], ["3", "Langues"]]]
+    };
+    const E = [
+      {
+        c: "Elyadata", r: ["Final-Year Engineering Internship (Graduation Project)", "Stage de fin d’études d’ingénieur (PFE)"], d: ["Feb 2026 – Jul 2026", "Fév 2026 – Juil 2026"],
+        b: [[["ASR Benchmarking and Model Selection:", "Benchmark ASR et sélection du modèle :"], ["evaluated NVIDIA NeMo and K2 against Whisper and Cohere across Arabic, French and English datasets using WER, CER and Real-Time Factor (RTF), then selected NVIDIA NeMo FastConformer based on accuracy, streaming efficiency, stability and tooling maturity.", "évaluation de NVIDIA NeMo et K2 face à Whisper et Cohere sur des jeux de données en arabe, français et anglais (WER, CER, RTF), puis choix de NVIDIA NeMo FastConformer selon la précision, l’efficacité en streaming, la stabilité et la maturité de l’outillage."]],
+        [["Research and Experimentation:", "Recherche et expérimentation :"], ["fine-tuned a natively streaming FastConformer on TEDxTN and TuniFra, reducing WER from 98.14% (zero-shot) to 40.31% and CER from 78.33% to 23.51% on the TEDxTN test set, establishing the final baseline for real-time Tunisian Arabic ASR.", "fine-tuning d’un FastConformer nativement streaming sur TEDxTN et TuniFra, réduisant le WER de 98,14% (zero-shot) à 40,31% et le CER de 78,33% à 23,51% sur le jeu de test TEDxTN, établissant la baseline finale pour l’ASR temps réel de l’arabe tunisien."]],
+        [["Real-Time Application:", "Application temps réel :"], ["developed ElyaSpeech, a microservices-based transcription platform (Angular, FastAPI, NeMo ASR). Started with WebSocket streaming, then migrated to WebRTC for browser-to-backend audio and gRPC/Protobuf for backend-to-ASR communication to improve real-time performance.", "développement d’ElyaSpeech, plateforme de transcription en microservices (Angular, FastAPI, NeMo ASR). Première architecture WebSocket, puis migration vers WebRTC (navigateur vers backend) et gRPC/Protobuf (backend vers ASR) pour améliorer les performances temps réel."]],
+        [["Storage, Architecture and Deployment:", "Stockage, architecture et déploiement :"], ["PostgreSQL for transcription data, Azurite (Azure Blob Storage) for audio and model artifacts, hexagonal architecture, Docker and Docker Compose.", "PostgreSQL pour les transcriptions, Azurite (Azure Blob Storage) pour l’audio et les artefacts des modèles, architecture hexagonale, Docker et Docker Compose."]],
+        [["Testing, Observability and CI/CD:", "Tests, observabilité et CI/CD :"], ["unit, end-to-end and performance tests (Pytest, Vitest, Playwright, Locust), Prometheus, Grafana and Loki, and automated quality checks and image publishing with GitHub Actions and Docker Hub.", "tests unitaires, de bout en bout et de performance (Pytest, Vitest, Playwright, Locust), Prometheus, Grafana et Loki, contrôles qualité et publication des images automatisés avec GitHub Actions et Docker Hub."]]],
+        t: ["Python", "PyTorch", "NVIDIA NeMo", "K2", "FastAPI", "WebRTC", "gRPC", "Angular", "PostgreSQL", "Azurite", "Docker", "GitHub Actions", "Prometheus", "Grafana", "Loki"]
+      },
+      {
+        c: "Linagora Tunisia", r: ["Engineering Internship", "Stage d’ingénieur"], d: ["Jul 2025 – Aug 2025", "Juil 2025 – Août 2025"],
+        b: [[["Multi-tenancy", "Multi-tenancy"], ["in the APISIX Dashboard: instance management, ETCD prefix-based isolation and instance-level access control.", "dans APISIX Dashboard : gestion des instances, isolation via préfixes ETCD et contrôle des droits par instance."]],
+        [["Frontend & backend:", "Frontend & backend :"], ["React with an instance selector; Go backend with ETCD prefix injection via middleware and per-instance caching.", "React avec sélecteur d’instance ; backend Go avec injection du préfixe ETCD via middleware et gestion des caches par instance."]],
+        [["Monitoring & security:", "Supervision & sécurité :"], ["instance status and key metrics (Prometheus), JWT-based security, Docker/Docker Compose containerization.", "état et métriques clés des instances (Prometheus), sécurisation JWT, conteneurisation Docker/Docker Compose."]]],
+        t: ["React", "Go", "APISIX", "ETCD", "JWT", "Prometheus", "Docker"]
+      },
+      {
+        c: "Devaxon", r: ["Corporate Immersion Internship", "Stage d’immersion en entreprise"], d: ["Jul 2024 – Aug 2024", "Juil 2024 – Août 2024"],
+        b: [[["Equipment management app:", "Gestion des équipements :"], ["calibration tracking, service providers and reports, with automatic alerts for calibration dates; containerized with Docker.", "suivi d’étalonnage, prestataires et rapports, avec alertes automatiques sur les dates d’étalonnage ; conteneurisation avec Docker."]]],
+        t: ["Angular", "TypeScript", "Spring Boot", "PostgreSQL", "Docker"]
+      },
+      {
+        c: "Elyadata", r: ["Final-Year Internship (Bachelor’s Degree)", "Stage de fin d’études (Licence)"], d: ["Feb 2023 – Jun 2023", "Fév 2023 – Juin 2023"],
+        b: [[["Mobile OCR app:", "Application mobile OCR :"], ["digitizes and extracts information from ID cards, business cards and invoices, including Arabic documents, with a multilingual OCR engine.", "numérisation et extraction d’informations à partir de pièces d’identité, cartes de visite et factures, y compris en arabe, avec un moteur OCR multilingue."]],
+        [["Security:", "Sécurisation :"], ["temporary local encryption, automatic deletion after processing, guided workflow (capture, cropping, preview, export).", "chiffrement local temporaire, suppression automatique après traitement, workflow guidé (capture, recadrage, prévisualisation, export)."]]],
+        t: ["Flutter", "Dart", "OCR", "Swagger"]
+      },
+      {
+        c: "Phylia Technology", r: ["Summer Internship", "Stage d’été"], d: ["Aug 2022", "Août 2022"],
+        b: [[["Meal-ordering mobile app:", "Commande de repas :"], ["real-time order tracking, Firebase (authentication, real-time database, push notifications) and advanced filtering.", "suivi en temps réel, Firebase (authentification, base temps réel, notifications push) et filtrage avancé."]]],
+        t: ["Flutter", "Dart", "Firebase"]
+      },
+          {
+        c: "DevUp", r: ["Training Project", "Projet en formation"], d: ["Feb 2020", "Fév 2020"],
+        b: [[["Weather forecast app:", "Application météo :"], ["Android weather forecast application with a modern XML interface following Android standards.", "application Android de prévisions météorologiques avec une interface moderne en XML conforme aux standards Android."]]],
+        t: ["Java", "XML", "Android Studio"]
+      }
+    ];
+    const P = [
+      {
+        n: ["Food Finder", "Food Finder"], s: ["Mobile app for discovering and booking culinary establishments", "Application mobile de découverte et réservation d’établissements culinaires"], d: ["Oct – Nov 2025", "Oct – Nov 2025"],
+        p: [["Discover, book, rate and manage favorite restaurants, with multi-role authentication (Google Sign-In, biometrics) and full CRUD on restaurants, dishes, bookings and reviews.", "Découverte, réservation, notation et gestion des favoris, avec authentification multi-rôles (Google Sign-In, biométrie) et CRUD complet : restaurants, plats, réservations, avis."], ["Gemini AI assistant for contextual recommendations; modular architecture (presentation, services, SQLite, FastAPI backend) and a reusable UI library.", "Assistant IA (Gemini) pour des recommandations contextuelles ; architecture modulaire (présentation, services, SQLite, backend FastAPI) et bibliothèque UI réutilisable."]], t: ["Flutter", "Dart", "FastAPI", "SQLite", "Gemini"]
+      },
+      {
+        n: ["AI Chatbot Assistant", "Assistant Chatbot IA"], s: ["Full-featured conversational AI application", "Application d’IA conversationnelle complète"], d: ["Oct 2025", "Oct 2025"],
+        p: [["Complete conversation history management with CRUD, integrating the OpenAI GPT API for real-time chat and message regeneration.", "Gestion intégrale de l’historique et CRUD, avec l’API OpenAI GPT pour le chat en temps réel et la régénération des messages."], ["Scalable RESTful Spring Boot backend and a responsive UI with Angular 19, PrimeNG and Tailwind CSS.", "Backend RESTful Spring Boot évolutif et interface responsive avec Angular 19, PrimeNG et Tailwind CSS."]], t: ["Angular 19", "Spring Boot", "PrimeNG", "Tailwind", "OpenAI"]
+      },
+      {
+        n: ["Coding Factory", "Coding Factory"], s: ["Academic management platform", "Plateforme de gestion académique"], d: ["Dec 2024 – May 2025", "Déc 2024 – Mai 2025"],
+        p: [["Manages final projects (PFE), courses, events and technical forums, with AI features: course recommendations and training-duration prediction.", "Gestion des PFE, cours, événements et forum technique, avec fonctionnalités IA : recommandation de cours et prédiction de la durée des formations."], ["Microservices (Eureka Server, API Gateway, Feign Client, Spring Cloud Config) deployed with Docker Compose.", "Architecture microservices (Eureka Server, API Gateway, Feign Client, Spring Cloud Config) déployée avec Docker Compose."]], t: ["Angular", "Spring Boot", "Neon PostgreSQL", "Docker", "ML"]
+      },
+      {
+        n: ["CareLink", "CareLink"], s: ["Cross-platform client-medical application", "Application client-médical multi-plateforme"], d: ["Feb – Apr 2024", "Fév – Avr 2024"],
+        p: [["Comprehensive patient management (appointments, medical records, follow-up) on a distributed architecture across three machines (application, database, clients) for better security and communication.", "Gestion complète du parcours patient (rendez-vous, dossiers, suivi médical) sur une architecture distribuée sur trois machines (application, base de données, clients) pour optimiser sécurité et communication."]], t: ["Symfony", "FlutterFlow", "JavaFX"]
+      },
+      {
+        n: ["DevOps", "DevOps"], s: ["Hands-on practice with key DevOps tools", "Mise en pratique des principaux outils DevOps"], d: ["Sep – Oct 2025", "Sep – Oct 2025"],
+        p: [["Orchestration, CI/CD, monitoring, code quality and containerization.", "Orchestration, CI/CD, monitoring, qualité du code et conteneurisation."]], t: ["Kubernetes", "Jenkins", "Prometheus", "SonarQube", "Docker"]
+      }];
+    const S = [
+      [["Programming Languages", "Langages"], "C / C++, C#, Java, Python, Dart, Go, JavaScript, TypeScript, PHP, SQL, LINQ, PL/SQL"],
+      [["Web & Frameworks", "Web & Frameworks"], "HTML, CSS, Bootstrap, Tailwind CSS, Angular, React, Symfony, .NET, Spring Boot, Flutter, FastAPI, Flask"],
+      [["Microservices & Real-Time", "Microservices & Temps réel"], "Eureka, API Gateway, Feign Client, Spring Cloud Config, WebSocket, WebRTC, gRPC / Protobuf, Apache APISIX"],
+      [["Databases", "Bases de données"], "MySQL, Oracle, SQLite, PostgreSQL, Neon PostgreSQL, Firebase, MongoDB, ETCD"],
+      [["DevOps & Observability", "DevOps & Observabilité"], "Docker / Docker Compose, GitHub Actions, Jenkins, Kubernetes, MiniKube, SonarQube, Prometheus, Grafana, Loki"],
+      [["AI / Machine Learning", "IA / Machine Learning"], "Machine Learning, Deep Learning, PyTorch, NVIDIA NeMo, K2 / icefall, Speech Recognition (ASR), Model Fine-tuning, Hugging Face, scikit-learn"],
+      [["Testing & API", "Tests & API"], "Pytest, Vitest, Playwright, Locust, Swagger, Postman"],
+      [["Tools & Management", "Outils & Gestion"], "Git, GitHub, Trello, Jira, VS Code, IntelliJ IDEA, Android Studio, Linux, Power BI, FlutterFlow, n8n"]];
+    const tg = a => `<div class="tags">${a.map(x => `<span class="tag">${x}</span>`).join("")}</div>`;
+    let L = 0, rt; const md = document.getElementById("md"), fr = document.getElementById("fr");
+    function type(l) {
+      clearTimeout(rt); const w = T.roles[l], el = document.getElementById("role"); let i = 0, j = 0, del = 0;
+      (function s() {
+        const t = w[i]; el.textContent = t.slice(0, j); if (!del && j == t.length && i == w.length - 1) return; if (!del && j == t.length) { del = 1; return void (rt = setTimeout(s, 1400)) }
+        if (del && j == 0) { del = 0; i = (i + 1) % w.length } j += del ? -1 : 1; rt = setTimeout(s, del ? 35 : 70)
+      })()
+    }
+    function render(l) {
+      L = l; document.documentElement.lang = l ? "fr" : "en";
+      document.querySelectorAll("[data-i]").forEach(e => e.textContent = T[e.dataset.i][l]);
+      document.getElementById("nav").innerHTML = ["about", "exp", "proj", "skills", "contact"].map((id, i) => `<a href="#${id}">${T.nav[l][i]}</a>`).join("");
+      const pf = l ? "cv-fr.pdf" : "cv-en.pdf";["cvd", "cvo"].forEach(k => document.getElementById(k).href = pf); if (!md.hidden) fr.src = pf + "#view=FitH";
+      document.getElementById("stats").innerHTML = T.stats[l].map(s => `<div class="st rv"><strong>${s[0]}</strong><span>${s[1]}</span></div>`).join("");
+      document.getElementById("expL").innerHTML = E.map(e => `<div class="it rv"><article class="card"><div class="hd"><h3>${e.c}</h3><span class="dt">${e.d[l]}</span></div><div class="rl">${e.r[l]}</div><ul>${e.b.map(b => `<li><b>${b[0][l]}</b> ${b[1][l]}</li>`).join("")}</ul>${tg(e.t)}</article></div>`).join("");
+      document.getElementById("projL").innerHTML = P.map(p => `<article class="card rv"><div class="hd"><h3>${p.n[l]}</h3><span class="dt">${p.d[l]}</span></div><div class="rl">${p.s[l]}</div>${p.p.map(x => `<p class="pd">${x[l]}</p>`).join("")}${tg(p.t)}</article>`).join("");
+      document.getElementById("skL").innerHTML = S.map(s => `<div class="card rv"><h4>${s[0][l]}</h4>${tg(s[1].split(", "))}</div>`).join("");
+      document.querySelectorAll("[data-l]").forEach(b => b.setAttribute("aria-pressed", (b.dataset.l == "fr" ? 1 : 0) == l));
+      try { localStorage.setItem("lang", l ? "fr" : "en") } catch (e) { }
+      type(l); observe()
+    }
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target) } }), { threshold: .12 });
+    function observe() { document.querySelectorAll(".rv:not(.in)").forEach(e => io.observe(e)) }
+    let l0 = 0; try { const s = localStorage.getItem("lang"); l0 = s ? (s == "fr" ? 1 : 0) : ((navigator.language || "").toLowerCase().startsWith("fr") ? 1 : 0) } catch (e) { }
+    document.querySelectorAll("[data-l]").forEach(b => b.onclick = () => render(b.dataset.l == "fr" ? 1 : 0));
+    document.getElementById("th").onclick = () => { const r = document.documentElement; const d = r.dataset.theme ? r.dataset.theme == "dark" : matchMedia("(prefers-color-scheme:dark)").matches; r.dataset.theme = d ? "light" : "dark" };
+    if (matchMedia("(prefers-color-scheme:dark)").matches) document.documentElement.dataset.theme = "dark";
+    addEventListener("scroll", () => {
+      const h = document.documentElement; document.getElementById("pg").style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + "%";
+      let cur = ""; document.querySelectorAll("section").forEach(s => { if (s.getBoundingClientRect().top < 140) cur = s.id });
+      document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.getAttribute("href") == "#" + cur))
+    }, { passive: true });
+    const MQ = "Python,PyTorch,NVIDIA NeMo,FastAPI,Angular,React,Spring Boot,Go,Flutter,WebRTC,gRPC,PostgreSQL,Docker,Kubernetes,GitHub Actions,Prometheus,Grafana".split(",");
+    document.getElementById("mq").innerHTML = [...MQ, ...MQ].map(x => `<span>${x}</span>`).join("");
+    addEventListener("mousemove", e => { const c = e.target.closest && e.target.closest(".card"); if (c) { const r = c.getBoundingClientRect(); c.style.setProperty("--mx", e.clientX - r.left + "px"); c.style.setProperty("--my", e.clientY - r.top + "px") } }, { passive: true });
+    function count() { document.querySelectorAll(".st strong").forEach(el => { const m = el.textContent.match(/^(\d+)([.,]?)(\d*)(.*)$/); if (!m) return; const dec = m[3].length, to = parseFloat(m[1] + "." + (m[3] || "0")), t0 = performance.now(); (function f(t) { const p = Math.min(1, (t - t0) / 1300), v = to * (1 - Math.pow(1 - p, 3)); el.textContent = (dec ? v.toFixed(dec).replace(".", m[2]) : Math.round(v)) + m[4]; if (p < 1) requestAnimationFrame(f) })(t0) }) }
+    function pvOpen() { fr.src = (L ? "cv-fr.pdf" : "cv-en.pdf") + "#view=FitH"; md.hidden = false; document.body.style.overflow = "hidden" }
+    function pvClose() { md.hidden = true; fr.src = "about:blank"; document.body.style.overflow = "" }
+    document.getElementById("pvb").onclick = pvOpen; document.getElementById("mc").onclick = pvClose;
+    md.addEventListener("click", e => { if (e.target === md) pvClose() }); addEventListener("keydown", e => { if (e.key === "Escape" && !md.hidden) pvClose() });
+    render(l0); count();
+    document.querySelectorAll("[data-l]").forEach(b => b.addEventListener("click", count));
+  </script>
 </body>
+
 </html>
