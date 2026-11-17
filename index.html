@@ -802,6 +802,13 @@
         <p class="about" data-i="about"></p>
       </div>
     </section>
+    <section id="edu">
+      <div class="w">
+        <div class="eyebrow rv" data-i="nE"></div>
+        <h2 class="rv" data-i="edT"></h2>
+        <div class="grid" id="edL"></div>
+      </div>
+    </section>
     <section id="exp">
       <div class="w">
         <div class="eyebrow rv" data-i="n1"></div>
@@ -847,15 +854,21 @@
       open: ["Open to on-site, hybrid, remote and relocation", "Ouvert : présentiel, hybride, télétravail et mobilité"],
       lead: ["Software engineer graduated from ESPRIT (2026), passionate about software development, DevOps and artificial intelligence.", "Ingénieur informatique diplômé d’ESPRIT (2026), passionné par le développement logiciel, le DevOps et l’intelligence artificielle."],
       cv: ["Download CV", "Télécharger le CV"], pv: ["Preview CV", "Aperçu du CV"], cvT: ["Curriculum Vitae", "Curriculum Vitae"], op2: ["Open in new tab", "Ouvrir dans un onglet"], cb: ["Contact me", "Me contacter"],
-      n0: ["01 / about", "01 / profil"], n1: ["02 / experience", "02 / expérience"], n2: ["03 / projects", "03 / projets"], n3: ["04 / skills", "04 / compétences"], n4: ["05 / contact", "05 / contact"],
+      n0: ["01 / about", "01 / profil"], n1: ["03 / experience", "03 / expérience"], n2: ["04 / projects", "04 / projets"], n3: ["05 / skills", "05 / compétences"], n4: ["06 / contact", "06 / contact"],
       aboutT: ["Personal Profile", "Profil personnel"],
+      nE: ["02 / education", "02 / formation"], edT: ["Education", "Formation"],
       about: ["Software Engineer graduated from ESPRIT (2026), versatile and passionate about software development, DevOps, and artificial intelligence. I have solid experience in application development, distributed architectures, automation, and AI solution integration. Rigorous, curious, and adaptable, I am eager to leverage my technical skills within a team and contribute to building innovative and robust solutions.", "Ingénieur informatique diplômé d’ESPRIT (2026), polyvalent et passionné par le développement logiciel, le DevOps et l’intelligence artificielle. Doté d’une solide expérience en conception d’applications, architectures distribuées, automatisation et intégration de solutions IA. Rigoureux, curieux et adaptable, je souhaite mettre mes compétences techniques au service d’une équipe et contribuer à la conception de solutions innovantes et robustes."],
       expT: ["Professional Experiences", "Expériences professionnelles"], projT: ["Academic Projects", "Projets académiques"], skT: ["Technical Skills", "Compétences techniques"],
       ctT: ["Let’s work together", "Travaillons ensemble"], ctP: ["Looking for a software, DevOps or AI engineer? I’d love to hear from you.", "Vous cherchez un ingénieur logiciel, DevOps ou IA ? Je serais ravi d’échanger."],
-      nav: [["About", "Experience", "Projects", "Skills", "Contact"], ["Profil", "Expérience", "Projets", "Compétences", "Contact"]],
+      nav: [["About", "Education", "Experience", "Projects", "Skills", "Contact"], ["Profil", "Formation", "Expérience", "Projets", "Compétences", "Contact"]],
       roles: [["Software Engineer & AI Engineer", "Full-Stack Developer", "DevOps & Cloud-native", "Full-Stack · DevOps · AI"], ["Ingénieur logiciel & ingénieur IA", "Développeur Full-Stack", "DevOps & Cloud-native", "Full-Stack · DevOps · IA"]],
       stats: [[["5", "Internships"], ["5", "Academic projects"], ["3", "Languages"]], [["5", "Stages"], ["5", "Projets académiques"], ["3", "Langues"]]]
     };
+    const ED = [
+      { s: ["ESPRIT – Private Higher School of Engineering and Technology", "ESPRIT – École Supérieure Privée d’Ingénierie et de Technologies"], r: ["Engineering Degree in Computer Science (Specialty: Software Engineering)", "Cycle d’ingénieur en informatique (spécialité : génie logiciel)"], d: ["Sep 2023 – Oct 2026", "Sep 2023 – Oct 2026"], l: ["Tunis, Tunisia", "Tunis, Tunisie"] },
+      { s: ["ISIMA – Higher Institute of Computer Science of Mahdia", "ISIMA – Institut Supérieur d’Informatique de Mahdia"], r: ["Bachelor’s Degree in Software Engineering and Information Systems", "Licence en génie logiciel et systèmes d’information"], d: ["Sep 2020 – Jun 2023", "Sep 2020 – Juin 2023"], l: ["Mahdia, Tunisia", "Mahdia, Tunisie"] },
+      { s: ["Ibn Sina High School", "Lycée Ibn Sina"], r: ["Baccalaureate in Computer Science", "Baccalauréat en sciences de l’informatique"], d: ["Jun 2020", "Juin 2020"], l: ["Médenine, Tunisia", "Médenine, Tunisie"] }
+    ];
     const E = [
       {
         c: "Elyadata", r: ["Final-Year Engineering Internship (Graduation Project)", "Stage de fin d’études d’ingénieur (PFE)"], d: ["Feb 2026 – Jul 2026", "Fév 2026 – Juil 2026"],
@@ -937,10 +950,11 @@
     function render(l) {
       L = l; document.documentElement.lang = l ? "fr" : "en";
       document.querySelectorAll("[data-i]").forEach(e => e.textContent = T[e.dataset.i][l]);
-      document.getElementById("nav").innerHTML = ["about", "exp", "proj", "skills", "contact"].map((id, i) => `<a href="#${id}">${T.nav[l][i]}</a>`).join("");
+      document.getElementById("nav").innerHTML = ["about", "edu", "exp", "proj", "skills", "contact"].map((id, i) => `<a href="#${id}">${T.nav[l][i]}</a>`).join("");
       const pf = l ? "cv-fr.pdf" : "cv-en.pdf";["cvd", "cvo"].forEach(k => document.getElementById(k).href = pf); if (!md.hidden) fr.src = pf + "#view=FitH";
       document.getElementById("stats").innerHTML = T.stats[l].map(s => `<div class="st rv"><strong>${s[0]}</strong><span>${s[1]}</span></div>`).join("");
       document.getElementById("expL").innerHTML = E.map(e => `<div class="it rv"><article class="card"><div class="hd"><h3>${e.c}</h3><span class="dt">${e.d[l]}</span></div><div class="rl">${e.r[l]}</div><ul>${e.b.map(b => `<li><b>${b[0][l]}</b> ${b[1][l]}</li>`).join("")}</ul>${tg(e.t)}</article></div>`).join("");
+      document.getElementById("edL").innerHTML = ED.map(e => `<article class="card rv"><div class="hd"><h3>${e.s[l]}</h3><span class="dt">${e.d[l]}</span></div><div class="rl">${e.r[l]}</div>${tg([e.l[l]])}</article>`).join("");
       document.getElementById("projL").innerHTML = P.map(p => `<article class="card rv"><div class="hd"><h3>${p.n[l]}</h3><span class="dt">${p.d[l]}</span></div><div class="rl">${p.s[l]}</div>${p.p.map(x => `<p class="pd">${x[l]}</p>`).join("")}${tg(p.t)}</article>`).join("");
       document.getElementById("skL").innerHTML = S.map(s => `<div class="card rv"><h4>${s[0][l]}</h4>${tg(s[1].split(", "))}</div>`).join("");
       document.querySelectorAll("[data-l]").forEach(b => b.setAttribute("aria-pressed", (b.dataset.l == "fr" ? 1 : 0) == l));
